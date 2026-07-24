@@ -1,0 +1,38 @@
+{
+  "name": "traktor-discord-bot",
+  "version": "2.0.0",
+  "description": "Discord bot that streams DJ audio from Traktor Pro 4 to a voice channel",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "check": "npm run build && npm run lint && npm run smoke:run && npm run test:e2e:run",
+    "start": "node dist/index.js",
+    "audio-devices": "npm run build && node scripts/list-audio-devices.mjs",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src/ scripts/",
+    "smoke": "npm run build && npm run smoke:run",
+    "smoke:run": "node scripts/smoke.mjs",
+    "test:e2e": "npm run build && npm run test:e2e:run",
+    "test:e2e:run": "node scripts/e2e-simulated.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "ffmpeg-for-homebridge": "^2.2.2",
+    "opusscript": "^0.0.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.8.6",
+    "eslint": "^9.13.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
